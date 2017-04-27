@@ -22,7 +22,6 @@ Chef::Log.info("********** This instance's public IP address is '#{instance['pub
 Chef::Log.info("********** This instance belongs to the layer '#{layer['name']}' **********")
 Chef::Log.info("********** This instance belongs to the stack '#{stack['name']}' **********")
 Chef::Log.info("********** This stack gets its cookbooks from '#{stack['custom_cookbooks_source']['url']}' **********")
-Chef::Log.info("********** This instance's Document Root  is '#{doc_root}' **********")
 
 
 

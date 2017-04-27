@@ -1,8 +1,5 @@
 # Create the document root directory.
-app = search("aws_opsworks_app").first
-doc_root = app['attributes']['document_root']
-
-directory doc_root do
+directory node['lamp']['web']['document_root'] do
   recursive true
 end
 

@@ -16,16 +16,9 @@ cookbook_file create_tables_script_path do
   source 'create-tables.sql'
 end
 
-#app = search("aws_opsworks_app").first
-#doc_root = app['attributes']['document_root']
-#app = search("aws_opsworks_app").first
-#node.default['lamp']['web']['document_root'] = doc_root
-
-
-
 
 # Seed the database with a table and test data.
-execute "initialize #{doc_root} database" do
+execute "initialize #{node['lamp']['database']['dbname']} database" do
   command "mysql -h 127.0.0.1 -u #{node['lamp']['database']['admin_username']} -p#{passwords['admin_password']} -D #{node['lamp']['database']['dbname']} < #{create_tables_script_path}"
   not_if  "mysql -h 127.0.0.1 -u #{node['lamp']['database']['admin_username']} -p#{passwords['admin_password']} -D #{node['lamp']['database']['dbname']} -e 'describe customers;'"
 end
