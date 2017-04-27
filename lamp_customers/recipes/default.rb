@@ -18,6 +18,9 @@ end
 
 app = search("aws_opsworks_app").first
 doc_root = app['attributes']['document_root']
+app = search("aws_opsworks_app").first
+node['lamp']['web']['document_root'] = doc_root
+
 
 
 # Seed the database with a table and test data.

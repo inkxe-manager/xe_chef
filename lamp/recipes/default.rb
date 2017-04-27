@@ -9,5 +9,9 @@ apt_update 'daily' do
   action :periodic
 end
 
+app = search("aws_opsworks_app").first
+doc_root = app['attributes']['document_root']
+node['lamp']['web']['document_root'] = doc_root
+
 include_recipe 'lamp::web'
 include_recipe 'lamp::database'

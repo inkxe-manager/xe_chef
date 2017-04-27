@@ -2,15 +2,12 @@
   ServerName <%= node['hostname'] %>
   ServerAdmin 'ops@example.com'
 
-  <%= app = search("aws_opsworks_app").first %>
-  <%= doc_root = app['attributes']['document_root'] %>
-  
-  DocumentRoot <%= doc_root %>
+  DocumentRoot <%= node['lamp']['web']['document_root'] %>
   <Directory "/">
           Options FollowSymLinks
           AllowOverride None
   </Directory>
-  <Directory <%= doc_root %> >
+  <Directory <%= node['lamp']['web']['document_root'] %> >
           Options Indexes FollowSymLinks MultiViews
           AllowOverride None
           Require all granted
