@@ -16,10 +16,11 @@ cookbook_file create_tables_script_path do
   source 'create-tables.sql'
 end
 
-app = search("aws_opsworks_app").first
-doc_root = app['attributes']['document_root']
-app = search("aws_opsworks_app").first
-node.default['lamp']['web']['document_root'] = doc_root
+#app = search("aws_opsworks_app").first
+#doc_root = app['attributes']['document_root']
+#app = search("aws_opsworks_app").first
+#node.default['lamp']['web']['document_root'] = doc_root
+
 
 
 

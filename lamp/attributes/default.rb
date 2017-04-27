@@ -1,4 +1,4 @@
-default['lamp']['web']['document_root'] = '/var/www/default/public_html'
+default['lamp']['web']['document_root'] = '/srv/www/'
 
 
 default['lamp']['database']['dbname'] = 'my_company'

@@ -9,9 +9,9 @@ apt_update 'daily' do
   action :periodic
 end
 
-app = search("aws_opsworks_app").first
-doc_root = app['attributes']['document_root']
-node.default['lamp']['web']['document_root'] = doc_root
+#app = search("aws_opsworks_app").first
+#doc_root = app['attributes']['document_root']
+#node.default['lamp']['web']['document_root'] = doc_root
 
 instance = search("aws_opsworks_instance").first
 layer = search("aws_opsworks_layer").first
